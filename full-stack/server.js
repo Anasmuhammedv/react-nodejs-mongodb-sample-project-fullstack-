@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import collection from './mongi.js'
+import collection from './src/assets/components/mongi.js'
 const app=express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -17,12 +17,28 @@ app.post('/',async(req,res)=>{
     try {
         const check = await collection.findOne({email:email})
 
+        
+        
+
         if(check){
             res.json("exist")
         }
         else{
-            res.json('not exist')
+            return  res.json('not exist')
+            
         }
+
+        // const validUser = check.password==password
+        // console.log(validUser);
+        // if(validUser==true){
+        //     // alert("user logged successfully")
+        //    return res.json("exist") 
+        // }
+        // else{
+        //     alert("please enter valid password")
+        // }
+        
+
     } catch (error) {
         res.json('internal server error')
         

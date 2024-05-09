@@ -23,7 +23,7 @@ function Signup() {
                         alert("user already exist")
                     }
                     else if (res.data=="not exist"){
-                        navigate('/home',{state:{id:email}})
+                        navigate('/')
                     }
     
                 })
