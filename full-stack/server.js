@@ -71,6 +71,16 @@ app.post('/signup',async(req,res)=>{
     }
 })
 
+
+app.get('/getUsers', async (req, res) => {
+    try {
+      const users = await collection.find();
+      res.json(users);
+    } catch (error) {
+      res.status(500).json(error); // Return the error object itself
+    }
+  });
+
 app.listen(3004,()=>{
     console.log(`server is running on port 8000`);
 })
